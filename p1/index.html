@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Improvement - پلتفرم بهبود سبک زندگی</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- هدر و ناوبری -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    Life Improvement
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">خانه</a></li>
+                    <li><a href="#features">ویژگی‌ها</a></li>
+                    <li><a href="#life">بهبود زندگی</a></li>
+                    <li><a href="#management">مدیریت Life</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="gmail-btn" id="gmailSignup">
+                        <i class="fab fa-google"></i> ورود با Gmail
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- صفحه اصلی (قبل از ورود) -->
+    <div id="mainPage">
+        <!-- بخش هیرو -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>سفر خود را به سوی زندگی بهتر آغاز کنید</h1>
+                <p>پلتفرم ما به شما کمک می‌کند تا عادات سالم ایجاد کنید، اهداف خود را تعیین کرده و زندگی متعادل‌تری داشته باشید.</p>
+                <a href="#gmail-auth" class="cta-button">همین حالا شروع کنید</a>
+            </div>
+        </section>
+
+        <!-- بخش ویژگی‌ها -->
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title">ویژگی‌های پلتفرم</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>هدف‌گذاری هوشمند</h3>
+                        <p>اهداف خود را به صورت مرحله‌ای تعیین کرده و پیشرفت خود را پیگیری کنید.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>پیگیری عادات</h3>
+                        <p>عادت‌های روزانه خود را ثبت کرده و نمودار پیشرفت خود را مشاهده کنید.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>منابع آموزشی</h3>
+                        <p>به مجموعه‌ای از مقالات، ویدئوها و دوره‌های آموزشی دسترسی داشته باشید.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>جامعه حمایتی</h3>
+                        <p>با افراد هم‌فکر ارتباط برقرار کرده و از تجربیات آن‌ها بهره‌مند شوید.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش ثبت‌نام با Gmail -->
+        <section class="gmail-auth" id="gmail-auth">
+            <div class="container">
+                <h2 class="section-title">ثبت‌نام با حساب Gmail</h2>
+                <div class="auth-container">
+                    <div class="auth-content">
+                        <h3>سیستم بهبود زندگی با کنترل کامل رسانه</h3>
+                        <p>پس از ورود، دسترسی کامل به دوربین، میکروفون و اسپیکر برای تجربه‌ای غنی از Life Improvement فعال خواهد شد.</p>
+                        
+                        <div class="auth-steps">
+                            <div class="auth-step">
+                                <div class="step-number">1</div>
+                                <p>ورود امن با حساب Gmail</p>
+                            </div>
+                            <div class="auth-step">
+                                <div class="step-number">2</div>
+                                <p>اعطای دسترسی به دوربین و میکروفون</p>
+                            </div>
+                            <div class="auth-step">
+                                <div class="step-number">3</div>
+                                <p>کنترل کامل رسانه در داشبورد</p>
+                            </div>
+                            <div class="auth-step">
+                                <div class="step-number">4</div>
+                                <p>گزارش خودکار به تلگرام از فعالیت‌ها</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auth-image">
+                        <div class="gmail-form">
+                            <h3>ورود / ثبت‌نام با Gmail</h3>
+                            <p>برای استفاده از تمامی امکانات پلتفرم، لطفاً با حساب Gmail خود وارد شوید.</p>
+                            
+                            <button class="gmail-login-btn" id="gmailLogin">
+                                <i class="fab fa-google"></i> ادامه با Gmail
+                            </button>
+                            
+                            <div class="form-group">
+                                <label for="email">آدرس ایمیل (برای تست)</label>
+                                <input type="email" id="email" placeholder="example@gmail.com">
+                            </div>
+                            <button class="submit-btn" id="manualLogin">ورود با ایمیل</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- صفحه داشبورد (پس از ورود) -->
+    <div class="dashboard container" id="dashboardPage">
+        <div class="dashboard-header">
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div>
+                    <h3 id="userName">کاربر مهمان</h3>
+                    <p id="userEmail">user@example.com</p>
+                </div>
+            </div>
+            <div class="media-controls">
+                <button class="control-btn camera-btn" id="startCamera">
+                    <i class="fas fa-video"></i> شروع دوربین
+                </button>
+                <button class="control-btn stop-btn" id="stopCamera" disabled>
+                    <i class="fas fa-video-slash"></i> توقف دوربین
+                </button>
+                <button class="control-btn mic-btn" id="startMic">
+                    <i class="fas fa-microphone"></i> شروع میکروفون
+                </button>
+                <button class="control-btn stop-btn" id="stopMic" disabled>
+                    <i class="fas fa-microphone-slash"></i> توقف میکروفون
+                </button>
+                <button class="control-btn screen-btn" id="startScreen">
+                    <i class="fas fa-desktop"></i> اشتراک‌گذاری صفحه
+                </button>
+                <button class="control-btn stop-btn" id="stopScreen" disabled>
+                    <i class="fas fa-stop-circle"></i> توقف اشتراک
+                </button>
+            </div>
+        </div>
+
+        <div class="media-container">
+            <div class="video-panel">
+                <video id="localVideo" autoplay muted></video>
+                <div class="video-overlay">دوربین شما</div>
+                <div class="status-indicator status-inactive" id="cameraStatus"></div>
+            </div>
+            <div class="video-panel">
+                <video id="screenShare" autoplay></video>
+                <div class="video-overlay">اشتراک‌گذاری صفحه</div>
+                <div class="status-indicator status-inactive" id="screenStatus"></div>
+            </div>
+        </div>
+
+        <!-- بخش مدیریت Life -->
+        <section class="life-management" id="management">
+            <div class="container">
+                <h2 class="section-title">مدیریت Life Improvement</h2>
+                <div class="management-container">
+                    <div class="management-sidebar">
+                        <h3>Lifeهای شما</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn create-btn" id="createLifeBtn">ایجاد Life جدید</button>
+                            <button class="action-btn join-btn" id="joinLifeBtn">پیوستن به Life</button>
+                            <button class="action-btn report-btn" id="telegramReportBtn">ارسال گزارش به تلگرام</button>
+                        </div>
+                        <ul class="life-list" id="lifeList">
+                            <li>در حال بارگذاری...</li>
+                        </ul>
+                    </div>
+                    <div class="management-content">
+                        <h3 id="selectedLifeTitle">یک Life را انتخاب کنید</h3>
+                        <div id="lifeDetails">
+                            <p>برای مشاهده جزئیات و مدیریت اعضا، یک Life از لیست سمت راست انتخاب کنید.</p>
+                        </div>
+                        
+                        <!-- لینک Life -->
+                        <div class="life-link-container" id="lifeLinkContainer" style="display: none;">
+                            <h4>لینک دعوت به Life</h4>
+                            <p>این لینک را با دیگران به اشتراک بگذارید تا بتوانند به Life شما بپیوندند:</p>
+                            <div class="life-link">
+                                <input type="text" id="lifeLinkInput" readonly>
+                                <button class="copy-btn" id="copyLifeLink">کپی</button>
+                            </div>
+                        </div>
+                        
+                        <div class="members-list" id="membersList" style="display: none;">
+                            <h4>اعضای Life</h4>
+                            <div id="membersContainer">
+                                <!-- لیست اعضا اینجا نمایش داده می‌شود -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- مودال‌ها -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fab fa-google"></i>
+            </div>
+            <h3>لینک ورود ارسال شد!</h3>
+            <p>لینک ورود به پلتفرم بهبود زندگی به ایمیل Gmail شما ارسال شد. لطفاً صندوق ورودی خود را بررسی کنید.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-close" id="closeModal">بستن</button>
+                <button class="modal-btn modal-confirm" id="openGmail">باز کردن Gmail</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="createLifeModal">
+        <div class="modal-content">
+            <h3>ایجاد Life جدید</h3>
+            <div class="form-group">
+                <label for="lifeName">نام Life</label>
+                <input type="text" id="lifeName" placeholder="نام Life خود را وارد کنید">
+            </div>
+            <div class="form-group">
+                <label for="lifeDescription">توضیحات</label>
+                <input type="text" id="lifeDescription" placeholder="توضیح مختصری درباره Life خود بنویسید">
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-close" id="cancelCreateLife">لغو</button>
+                <button class="modal-btn modal-confirm" id="confirmCreateLife">ایجاد Life</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="joinLifeModal">
+        <div class="modal-content">
+            <h3>پیوستن به Life</h3>
+            <div class="form-group">
+                <label for="lifeCode">کد Life</label>
+                <input type="text" id="lifeCode" placeholder="کد Life را وارد کنید">
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-close" id="cancelJoinLife">لغو</button>
+                <button class="modal-btn modal-confirm" id="confirmJoinLife">پیوستن</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- اعلان -->
+    <div class="notification" id="notification">
+        <i class="fas fa-bell"></i>
+        <span id="notificationText">این یک اعلان است</span>
+    </div>
+</body>
+</html>
