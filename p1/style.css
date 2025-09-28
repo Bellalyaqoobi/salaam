@@ -1,740 +1,686 @@
- :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #2196F3;
-            --accent-color: #FF9800;
-            --light-color: #f5f5f5;
-            --dark-color: #333;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --gmail-color: #DB4437;
-            --danger-color: #f44336;
-            --success-color: #4CAF50;
-        }
-        
-        * {
+* {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f9f9f9;
-            color: var(--dark-color);
-            line-height: 1.6;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: 100%;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 15px;
         }
         
-        /* هدر */
         header {
-            background-color: white;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-left: 10px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 20px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .auth-buttons button {
-            padding: 8px 16px;
-            margin-left: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .gmail-btn {
-            background-color: var(--gmail-color);
-            color: white;
-            display: flex;
-            align-items: center;
-        }
-        
-        .gmail-btn i {
-            margin-left: 8px;
-        }
-        
-        .auth-buttons button:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-        
-        /* صفحه اصلی */
-        #mainPage {
-            transition: opacity 0.5s;
-        }
-        
-        /* بخش هیرو */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 80px 0;
             text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
             margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: white;
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* بخش ویژگی‌ها */
-        .features {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2rem;
-            color: var(--dark-color);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature-icon {
-            font-size: 40px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        /* بخش ثبت‌نام */
-        .gmail-auth {
-            padding: 80px 0;
-            background-color: var(--light-color);
-        }
-        
-        .auth-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .auth-content {
-            flex: 1;
-        }
-        
-        .auth-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .auth-steps {
-            margin: 30px 0;
-        }
-        
-        .auth-step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-        
-        .step-number {
-            background-color: var(--gmail-color);
             color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 15px;
-            font-weight: bold;
-        }
-        
-        .gmail-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-top: 30px;
-            text-align: center;
-        }
-        
-        .gmail-login-btn {
-            background-color: var(--gmail-color);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 500;
-            width: 100%;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        
-        .gmail-login-btn i {
-            margin-left: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .gmail-login-btn:hover {
-            background-color: #c23321;
-        }
-        
-        /* صفحه داشبورد */
-        .dashboard {
-            display: none;
-            padding: 20px 0;
-        }
-        
-        .dashboard-header {
-            background-color: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            flex-wrap: wrap;
         }
         
-        .user-info {
+        .logo-container {
             display: flex;
-            align-items: center;
+            justify-content: center;
             margin-bottom: 15px;
         }
         
-        .user-avatar {
-            width: 50px;
-            height: 50px;
+        .luxury-logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #4a69bd, #6a89cc);
             border-radius: 50%;
-            background-color: var(--primary-color);
-            color: white;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            margin-left: 15px;
-        }
-        
-        .media-controls {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .control-btn {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s;
-        }
-        
-        .control-btn i {
-            margin-left: 5px;
-        }
-        
-        .control-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        
-        .camera-btn {
-            background-color: var(--primary-color);
             color: white;
-        }
-        
-        .mic-btn {
-            background-color: #9c27b0;
-            color: white;
-        }
-        
-        .screen-btn {
-            background-color: #ff9800;
-            color: white;
-        }
-        
-        .stop-btn {
-            background-color: var(--danger-color);
-            color: white;
-        }
-        
-        .media-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .video-panel {
-            background-color: #333;
-            border-radius: 8px;
-            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
             position: relative;
-            min-height: 250px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
         }
         
-        .video-panel video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .video-overlay {
+        .luxury-logo::before {
+            content: '';
             position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
+            width: 150%;
+            height: 150%;
+            background: conic-gradient(transparent, transparent, transparent, #ffffff);
+            animation: rotate-border 4s linear infinite;
         }
         
-        .status-indicator {
+        .luxury-logo::after {
+            content: '';
             position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 12px;
-            height: 12px;
+            inset: 3px;
+            background: linear-gradient(135deg, #4a69bd, #6a89cc);
             border-radius: 50%;
+            z-index: 1;
         }
         
-        .status-active {
-            background-color: var(--success-color);
-            box-shadow: 0 0 10px var(--success-color);
+        .logo-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
         }
         
-        .status-inactive {
-            background-color: #ccc;
+        .logo-content i {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
         
-        /* بخش مدیریت Life */
-        .life-management {
-            padding: 40px 0;
-            background-color: var(--light-color);
-            border-radius: 8px;
-            margin-top: 30px;
+        .logo-content span {
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: block;
+            letter-spacing: 1px;
         }
         
-        .management-container {
+        @keyframes rotate-border {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
             display: flex;
-            gap: 30px;
             flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
         }
         
-        .management-sidebar {
+        .form-section {
             flex: 1;
             min-width: 300px;
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
         }
         
-        .management-content {
+        .form-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4a69bd;
+            border-bottom: 3px solid #6a89cc;
+            padding-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a69bd;
+            font-size: 1rem;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #dff9fb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: #f8f9ff;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: #4a69bd;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 105, 189, 0.2);
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, #4a69bd, #6a89cc);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(74, 105, 189, 0.4);
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 105, 189, 0.5);
+        }
+        
+        .cards-section {
             flex: 2;
             min-width: 300px;
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: var(--shadow);
         }
         
-        .life-list {
-            list-style: none;
-            margin-top: 20px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        .life-list li {
-            padding: 10px 15px;
-            margin-bottom: 10px;
-            background-color: #f5f5f5;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .life-list li:hover {
-            background-color: #e0e0e0;
-        }
-        
-        .life-list li.active {
-            background-color: var(--primary-color);
+        .cards-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
             color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            font-size: 1.5rem;
         }
         
-        .action-buttons {
+        .controls {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .sort-controls, .search-controls {
+            display: flex;
+            align-items: center;
             gap: 10px;
-            margin-top: 20px;
             flex-wrap: wrap;
         }
         
-        .action-btn {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .create-btn {
-            background-color: var(--primary-color);
+        .sort-controls label, .search-controls label {
             color: white;
+            font-weight: 600;
         }
         
-        .join-btn {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-        
-        .report-btn {
-            background-color: #0088cc;
-            color: white;
-        }
-        
-        .members-list {
-            margin-top: 20px;
-        }
-        
-        .member-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 15px;
-            margin-bottom: 10px;
-            background-color: #f5f5f5;
-            border-radius: 4px;
-        }
-        
-        .member-actions button {
-            padding: 5px 10px;
-            margin-left: 5px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-        
-        .remove-btn {
-            background-color: #f44336;
-            color: white;
-        }
-        
-        .promote-btn {
-            background-color: #ff9800;
-            color: white;
-        }
-        
-        .admin-badge {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            margin-right: 10px;
-        }
-        
-        .lock-badge {
-            background-color: #ff9800;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            margin-right: 10px;
-        }
-        
-        /* لینک Life */
-        .life-link-container {
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-top: 20px;
-        }
-        
-        .life-link {
-            display: flex;
-            margin-top: 10px;
-        }
-        
-        .life-link input {
-            flex: 1;
+        .sort-controls select, .search-controls input {
             padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px 0 0 4px;
-            font-family: monospace;
-        }
-        
-        .copy-btn {
-            background-color: var(--secondary-color);
-            color: white;
             border: none;
-            padding: 0 15px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-        }
-        
-        /* مودال */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background-color: white;
-            padding: 30px;
             border-radius: 8px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            box-shadow: var(--shadow);
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
         }
         
-        .modal-icon {
-            font-size: 50px;
-            color: var(--gmail-color);
-            margin-bottom: 20px;
+        .student-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
         
-        .modal-buttons {
+        .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid #e6e6e6;
         }
         
-        .modal-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         
-        .modal-close {
-            background-color: #f44336;
-            color: white;
-        }
-        
-        .modal-confirm {
-            background-color: var(--gmail-color);
-            color: white;
-        }
-        
-        /* اعلان */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            border-radius: 4px;
-            color: white;
-            z-index: 1100;
+        .delete-btn, .print-btn {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            box-shadow: var(--shadow);
-            transform: translateX(150%);
-            transition: transform 0.3s;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0.9;
+            transition: all 0.3s;
+            z-index: 10;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
         
-        .notification.show {
-            transform: translateX(0);
+        .delete-btn {
+            top: 12px;
+            left: 12px;
+            background: #ff6b6b;
+            color: white;
         }
         
-        .notification.success {
-            background-color: var(--success-color);
+        .print-btn {
+            top: 12px;
+            right: 12px;
+            background: #1dd1a1;
+            color: white;
         }
         
-        .notification.error {
-            background-color: var(--danger-color);
+        .delete-btn:hover, .print-btn:hover {
+            opacity: 1;
+            transform: scale(1.1);
         }
         
-        .notification.info {
-            background-color: var(--secondary-color);
+        .card-header {
+            background: linear-gradient(to right, #4a69bd, #6a89cc);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .notification i {
-            margin-left: 10px;
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            pointer-events: none;
         }
         
-        /* رسپانسیو */
+        .card-header h3 {
+            font-size: 1.4rem;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-header p {
+            opacity: 0.9;
+            margin: 8px 0 0;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        .student-info {
+            margin-bottom: 15px;
+        }
+        
+        .student-info p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: #4a4a4a;
+        }
+        
+        .student-info i {
+            margin-left: 12px;
+            color: #4a69bd;
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .card-footer {
+            background: #f8f9ff;
+            padding: 15px;
+            text-align: center;
+            border-top: 1px solid #e6e6e6;
+        }
+        
+        .card-id {
+            font-weight: bold;
+            color: #4a69bd;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        
+        .academy-logo {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #4a69bd, #6a89cc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 1.6rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .empty-state {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            margin-top: 20px;
+            grid-column: 1 / -1;
+            backdrop-filter: blur(10px);
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .database-section {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            overflow-x: auto;
+            backdrop-filter: blur(10px);
+        }
+        
+        .database-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4a69bd;
+            border-bottom: 3px solid #6a89cc;
+            padding-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .database-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            min-width: 650px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .database-table th, .database-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #e6e6e6;
+            font-size: 1rem;
+        }
+        
+        .database-table th {
+            background-color: #4a69bd;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .database-table tr:nth-child(even) {
+            background-color: #f8f9ff;
+        }
+        
+        .database-table tr:hover {
+            background-color: #eef1ff;
+        }
+        
+        /* استایل های مخصوص پرینت */
+        @media print {
+            body, html {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                background: white !important;
+            }
+            
+            body * {
+                visibility: hidden;
+                background: white !important;
+                color: black !important;
+            }
+            
+            #print-section, #print-section *,
+            #print-db-section, #print-db-section * {
+                visibility: visible;
+            }
+            
+            #print-section, #print-db-section {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 0;
+                background: white;
+                margin: 0;
+            }
+            
+            .print-card {
+                page-break-inside: avoid;
+                margin: 15mm;
+                border: 2px solid #4a69bd;
+                border-radius: 12px;
+                width: calc(100% - 30mm);
+                padding: 5mm;
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+            }
+            
+            .print-header {
+                background: #4a69bd !important;
+                color: white !important;
+                padding: 15px;
+                text-align: center;
+                margin-bottom: 20px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .print-controls, .print-db-controls {
+                display: none !important;
+            }
+            
+            .academy-logo {
+                background: #4a69bd !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .card-header {
+                background: #4a69bd !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .database-print-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                font-size: 14px;
+            }
+            
+            .database-print-table th, .database-print-table td {
+                padding: 8px 10px;
+                text-align: right;
+                border: 1px solid #ddd;
+            }
+            
+            .database-print-table th {
+                background-color: #4a69bd !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .database-print-table tr:nth-child(even) {
+                background-color: #f2f2f2 !important;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+        }
+        
+        /* رسپانسیو برای موبایل */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            header h1 {
+                font-size: 1.8rem;
             }
             
-            .auth-container {
-                flex-direction: column;
+            .luxury-logo {
+                width: 100px;
+                height: 100px;
             }
             
-            .hero h1 {
+            .logo-content i {
                 font-size: 2rem;
             }
             
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .modal-buttons {
+            .content {
                 flex-direction: column;
             }
             
-            .management-container {
+            .form-section, .cards-section {
+                width: 100%;
+            }
+            
+            .controls {
                 flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
             }
             
-            .dashboard-header {
+            .sort-controls, .search-controls {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
             }
             
-            .media-controls {
-                justify-content: center;
-            }
-            
-            .media-container {
+            .student-cards {
                 grid-template-columns: 1fr;
             }
             
-            .notification {
-                right: 10px;
-                left: 10px;
-                transform: translateY(-100px);
-            }
-            
-            .notification.show {
-                transform: translateY(0);
+            .database-section {
+                padding: 20px;
             }
         }
         
-        /* اسپینر */
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: var(--primary-color);
+        /* رسپانسیو برای تبلت */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .student-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* استایل برای دسکتاپ */
+        @media (min-width: 1025px) {
+            .student-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .print-controls, .print-db-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .print-controls button, .print-db-controls button {
+            width: auto;
+            padding: 12px 25px;
+            border-radius: 8px;
+        }
+        
+        #print-btn, #print-db-btn {
+            background: linear-gradient(to right, #1dd1a1, #10ac84);
+        }
+        
+        #close-print, #close-print-db {
+            background: linear-gradient(to right, #ff9f43, #feca57);
+        }
+        
+        .logo-small {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4a69bd, #6a89cc);
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            margin-left: 10px;
+            vertical-align: middle;
         }
         
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .logo-watermark {
+            position: absolute;
+            opacity: 0.1;
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='10' fill='%234a69bd'%3Eآکادمی نخبگان%3C/text%3E%3C/svg%3E") no-repeat center;
         }
         
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
+        .db-print-container {
+            width: 100%;
+            padding: 20px;
+        }
+        
+        .telegram-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: opacity 0.5s;
+            opacity: 0;
+        }
+        
+        .telegram-success {
+            background-color: #1dd1a1;
+        }
+        
+        .telegram-error {
+            background-color: #ff6b6b;
+        }
+        
+        .telegram-sending {
+            background-color: #feca57;
         }
