@@ -1,166 +1,226 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
+<!DOCTYPE html> 
+<html lang="fa" dir="rtl"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>سیستم مدیریت پرسنل - نخبگان ستاری</title> 
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آکادمی نخبگان ستاری</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <div class="logo-container">
-                <div class="luxury-logo">
-                    <div class="logo-content">
-                        <i class="fas fa-crown"></i>
-                        <span>ACADEMY</span>
-                        <span>silent</span>
-                    </div>
-                </div>
-            </div>
-            <h1>آکادمی نخبگان ستاری</h1>
-            <p>سیستم مدیریت کارت های هویت دانشجویان</p>
-            <p style="font-size: 0.9rem; margin-top: 10px; background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 5px;">
-                <i class="fas fa-paper-plane"></i> ساخته شده توسط silent belal
-            </p>
-        </header>
-        
-        <div class="content">
-            <section class="form-section">
-                <h2>ثبت نام دانشجوی جدید</h2>
-                <form id="student-form">
-                    <div class="form-group">
-                        <label for="name">نام و نام خانوادگی</label>
-                        <input type="text" id="name" required placeholder="نام کامل">
-                    </div>
-                    <div class="form-group">
-                        <label for="student-id">شماره دانشجویی</label>
-                        <input type="text" id="student-id" required placeholder="شماره دانشجویی">
-                    </div>
-                    <div class="form-group">
-                        <label for="field">رشته تحصیلی</label>
-                        <input type="text" id="field" required placeholder="رشته تحصیلی">
-                    </div>
-                    <div class="form-group">
-                        <label for="level">مقطع تحصیلی</label>
-                        <select id="level" required>
-                            <option value="">انتخاب کنید</option>
-                            <option value="فن بیان">فن بیان</option>
-                            <option value="خبرنگاری شش ماه">خبرنگاری شش ماه </option>
-                            <option value="ژورنالیزم حرفوی">ژورنالیزم حرفوی</option>
-                            <option value="روانشناسی تاریک">روانشناسی تاریک</option>
-                            <option value="دکلمه">دکلمه</option>
-                            <option value=" صدا سازی"> صدا سازی</option>
-                            <option value="ارتباطات">ارتباطات</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">تلفن همراه</label>
-                        <input type="tel" id="phone" required placeholder="شماره تلفن">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">ایمیل</label>
-                        <input type="email" id="email" required placeholder="آدرس ایمیل">
-                    </div>
-                    <button type="submit">ثبت اطلاعات و ایجاد کارت</button>
-                </form>
-            </section>
-            
-            <section class="cards-section">
-                <h2>کارت های هویت دانشجویان</h2>
-                <div class="controls">
-                    <div class="sort-controls">
-                        <label for="sort-by">مرتب سازی:</label>
-                        <select id="sort-by">
-                            <option value="name">نام</option>
-                            <option value="studentId">شماره دانشجویی</option>
-                            <option value="field">رشته تحصیلی</option>
-                        </select>
-                        <select id="sort-order">
-                            <option value="asc">صعودی</option>
-                            <option value="desc">نزولی</option>
-                        </select>
-                    </div>
-                    <div class="search-controls">
-                        <input type="text" id="search-input" placeholder="جستجوی دانشجو...">
-                    </div>
-                    <div>
-                        <button type="button" id="print-all-btn" style="width: auto; padding: 10px 20px;">
-                            <i class="fas fa-print"></i> پرینت همه
-                        </button>
-                        <button type="button" id="print-db-btn" style="width: auto; padding: 10px 20px; background: #1dd1a1;">
-                            <i class="fas fa-table"></i> پرینت دیتابیس
-                        </button>
-                    </div>
-                </div>
-                <div class="student-cards" id="student-cards">
-                    <div class="empty-state">
-                        <i class="fas fa-id-card"></i>
-                        <p>هنوز دانشجویی ثبت نشده است</p>
-                        <p>فرم را پر کنید تا اولین کارت ایجاد شود</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-        
-        <section class="database-section">
-            <h2>پایگاه داده دانشجویان</h2>
-            <div style="overflow-x: auto;">
-                <table class="database-table">
-                    <thead>
-                        <tr>
-                            <th>شماره</th>
-                            <th>نام و نام خانوادگی</th>
-                            <th>شماره دانشجویی</th>
-                            <th>رشته تحصیلی</th>
-                            <th>مقطع</th>
-                            <th>تلفن</th>
-                            <th>ایمیل</th>
-                            <th>عملیات</th>
-                        </tr>
-                    </thead>
-                    <tbody id="database-table-body">
-                        <tr>
-                            <td colspan="8" style="text-align: center;">هیچ داده ای وجود ندارد</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </div>
-
-    <!-- بخش مخصوص پرینت کارت ها -->
-    <div id="print-section" style="display: none;">
-        <div class="print-header">
-            <h2>کارت های هویت دانشجویان - آکادمی نخبگان ستاری</h2>
-            <p>تاریخ پرینت: <span id="print-date"></span></p>
-        </div>
-        <div class="print-controls no-print">
-            <button id="print-btn" onclick="window.print()"><i class="fas fa-print"></i> پرینت کارت ها</button>
-            <button id="close-print" onclick="closePrintView()"><i class="fas fa-times"></i> بستن نمای پرینت</button>
-        </div>
-        <div id="print-cards-container"></div>
-    </div>
-
-    <!-- بخش مخصوص پرینت دیتابیس -->
-    <div id="print-db-section" style="display: none;">
-        <div class="print-header">
-            <h2>پایگاه داده دانشجویان - آکادمی نخبگان ستاری</h2>
-            <p>تاریخ پرینت: <span id="print-db-date"></span></p>
-        </div>
-        <div class="print-db-controls no-print">
-            <button id="print-db-btn" onclick="window.print()"><i class="fas fa-print"></i> پرینت دیتابیس</button>
-            <button id="close-print-db" onclick="closePrintDbView()"><i class="fas fa-times"></i> بستن نمای پرینت</button>
-        </div>
-        <div class="db-print-container" id="print-db-container"></div>
-    </div>
-
-    <!-- وضعیت ارسال به تلگرام -->
-    <div id="telegram-status" class="telegram-status"></div>
-
-
-    
-</body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+</head> 
+<body> 
+    <div class="container"> 
+        <header> 
+            <div class="header-content"> 
+                <div class="logo"> 
+                    <i class="fas fa-user-graduate"></i> 
+                    <h1>سیستم مدیریت پرسنل - نخبگان ستاری</h1> 
+                </div> 
+                <div class="telegram-info"> 
+                    <i class="fab fa-telegram"></i> 
+                   Silent Belal
+                </div> 
+            </div> 
+        </header> 
+         
+        <div class="nav-tabs"> 
+            <div class="tab active" data-tab="add">افزودن پرسنل جدید</div> 
+            <div class="tab" data-tab="list">لیست پرسنل</div> 
+            <div class="tab" data-tab="idcard">چاپ کارت هویت</div> 
+            <div class="tab" data-tab="stats">آمار و گزارشها</div> 
+        </div> 
+         
+        <div class="notification success" id="success-notification"> 
+            عملیات با موفقیت انجام شد! 
+        </div> 
+         
+        <div class="notification error" id="error-notification"> 
+            خطا در انجام عملیات! 
+        </div> 
+         
+        <!-- بخش افزودن پرسنل --> 
+        <div class="tab-content active" id="add"> 
+            <div class="print-actions"> 
+                <button class="btn btn-print" onclick="printSection('add')"> 
+                    <i class="fas fa-print"></i> پرینت فرم 
+                </button> 
+            </div> 
+             
+            <div class="print-section"> 
+                <div class="print-header"> 
+                    <h2>فرم ثبت پرسنل جدید</h2> 
+                    <p>آموزشگاه نخبگان ستاری - سیستم مدیریت پرسنل</p> 
+                </div> 
+                 
+                <h2><i class="fas fa-user-plus"></i> ثبت اطلاعات پرسنل جدید</h2> 
+                <form id="personnel-form"> 
+                    <div class="form-row"> 
+                        <div class="form-group"> 
+                            <label for="fullName">نام کامل</label> 
+                            <input type="text" id="fullName" required> 
+                        </div> 
+                        <div class="form-group"> 
+                            <label for="fatherName">نام پدر</label> 
+                            <input type="text" id="fatherName" required> 
+                        </div> 
+                    </div> 
+                     
+                    <div class="form-row"> 
+                        <div class="form-group"> 
+                            <label for="idNumber">شماره تذکره</label> 
+                            <input type="text" id="idNumber" required> 
+                        </div> 
+                        <div class="form-group"> 
+                            <label for="phone">شماره تماس</label> 
+                            <input type="tel" id="phone" required> 
+                        </div> 
+                    </div> 
+                     
+                    <div class="form-row"> 
+                        <div class="form-group"> 
+                            <label for="department">صنف/بخش</label> 
+                            <select id="department" required> 
+                                <option value="">انتخاب کنید</option> 
+                                <option value="مدیریت">مدیریت</option> 
+                                <option value="آموزش">آموزش</option> 
+                                <option value="اداری">اداری</option> 
+                                <option value="مالی">مالی</option> 
+                                <option value="فنی">فنی</option> 
+                            </select> 
+                        </div> 
+                        <div class="form-group"> 
+                            <label for="position">مقطع/سمت</label> 
+                            <input type="text" id="position" required> 
+                        </div> 
+                    </div> 
+                     
+                    <div class="form-row"> 
+                        <div class="form-group"> 
+                            <label for="personalNumber">شماره پرسنلی</label> 
+                            <input type="text" id="personalNumber" required> 
+                        </div> 
+                        <div class="form-group"> 
+                            <label for="photo">عکس پرسنلی (URL)</label> 
+                            <input type="text" id="photo" placeholder="آدرس تصویر (اختیاری)"> 
+                        </div> 
+                    </div> 
+                     
+                    <button type="submit" class="btn btn-primary"> 
+                        <i class="fas fa-save"></i> ذخیره اطلاعات و ارسال گزارش 
+                    </button> 
+                </form> 
+                 
+                <div class="print-footer"> 
+                    <p>چاپ شده از سیستم مدیریت پرسنل نخبگان ستاری - تاریخ: <span id="print-date-add"></span></p> 
+                </div> 
+            </div> 
+        </div> 
+         
+        <!-- بخش لیست پرسنل --> 
+        <div class="tab-content" id="list"> 
+            <div class="print-actions"> 
+                <button class="btn btn-print" onclick="printSection('list')"> 
+                    <i class="fas fa-print"></i> پرینت لیست 
+                </button> 
+            </div> 
+             
+            <div class="print-section"> 
+                <div class="print-header"> 
+                    <h2>لیست کامل پرسنل</h2> 
+                    <p>آموزشگاه نخبگان ستاری - سیستم مدیریت پرسنل</p> 
+                </div> 
+                 
+                <h2><i class="fas fa-list"></i> لیست پرسنل ثبت شده</h2> 
+                <div class="search-box"> 
+                    <input type="text" id="searchInput" placeholder="جستجو در بین پرسنل..."> 
+                </div> 
+                <div class="personnel-list" id="personnelList"> 
+                    <!-- لیست پرسنل به صورت داینامیک پر میشود --> 
+                </div> 
+                 
+                <div class="print-footer"> 
+                    <p>چاپ شده از سیستم مدیریت پرسنل نخبگان ستاری - تاریخ: <span id="print-date-list"></span></p> 
+                </div> 
+            </div> 
+        </div> 
+         
+        <!-- بخش کارت هویت --> 
+        <div class="tab-content" id="idcard"> 
+            <div class="print-actions"> 
+                <button class="btn btn-print" onclick="printSection('idcard')"> 
+                    <i class="fas fa-print"></i> پرینت کارت 
+                </button> 
+            </div> 
+             
+            <div class="print-section"> 
+                <div class="print-header"> 
+                    <h2>کارت هویت پرسنل</h2> 
+                    <p>آموزشگاه نخبگان ستاری - سیستم مدیریت پرسنل</p> 
+                </div> 
+                 
+                <h2><i class="fas fa-id-card"></i> چاپ کارت هویت پرسنل</h2> 
+                <div class="form-group"> 
+                    <label for="personnelSelect">انتخاب پرسنل برای چاپ کارت</label> 
+                    <select id="personnelSelect"> 
+                        <option value="">یک پرسنل را انتخاب کنید</option> 
+                    </select> 
+                </div> 
+                 
+                <div id="idCardContainer"> 
+                    <!-- کارت هویت به صورت داینامیک پر میشود --> 
+                </div> 
+                 
+                <div class="print-footer"> 
+                    <p>چاپ شده از سیستم مدیریت پرسنل نخبگان ستاری - تاریخ: <span id="print-date-idcard"></span></p> 
+                </div> 
+            </div> 
+        </div> 
+         
+        <!-- بخش آمار و گزارشها --> 
+        <div class="tab-content" id="stats"> 
+            <div class="print-actions"> 
+                <button class="btn btn-print" onclick="printSection('stats')"> 
+                    <i class="fas fa-print"></i> پرینت آمار 
+                </button> 
+            </div> 
+             
+            <div class="print-section"> 
+                <div class="print-header"> 
+                    <h2>گزارش آماری سیستم</h2> 
+                    <p>آموزشگاه نخبگان ستاری - سیستم مدیریت پرسنل</p> 
+                </div> 
+                 
+                <h2><i class="fas fa-chart-bar"></i> آمار و گزارشها</h2> 
+                 
+                <div class="stats"> 
+                    <div class="stat-card"> 
+                        <i class="fas fa-users fa-2x"></i> 
+                        <div class="stat-number" id="totalPersonnel">0</div> 
+                        <div class="stat-title">تعداد کل پرسنل</div> 
+                    </div> 
+                    <div class="stat-card"> 
+                        <i class="fas fa-chalkboard-teacher fa-2x"></i> 
+                        <div class="stat-number" id="educationCount">0</div> 
+                        <div class="stat-title">پرسنل آموزشی</div> 
+                    </div> 
+                    <div class="stat-card"> 
+                        <i class="fas fa-id-card fa-2x"></i> 
+                        <div class="stat-number" id="idCardsPrinted">0</div> 
+                        <div class="stat-title">کارت چاپ شده</div> 
+                    </div> 
+                </div> 
+                 
+                <div class="form-group"> 
+                    <button class="btn btn-success" id="sendReportBtn"> 
+                        <i class="fab fa-telegram"></i> ارسال گزارش به تلگرام 
+                    </button> 
+                </div> 
+                 
+                <div class="print-footer"> 
+                    <p>چاپ شده از سیستم مدیریت پرسنل نخبگان ستاری - تاریخ: <span id="print-date-stats"></span></p> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+</body> 
 </html>
