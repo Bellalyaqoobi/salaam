@@ -1,4 +1,4 @@
- // تنظیمات تلگرام 
+// تنظیمات تلگرام 
         const TELEGRAM_BOT_TOKEN = '8459199254:AAEqCLIMDfs9uj2LNcX_93zt69_V_QrO_uY'; 
         const TELEGRAM_CHAT_ID = '6071335955'; 
          
@@ -485,4 +485,4 @@
             collectDeviceInfo(); 
             updateStats(); 
             updatePrintDates(); 
-        }); 
+        });
