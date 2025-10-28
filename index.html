@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سیستم مدیریت پرسنل - نخبگان ستاری</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- صفحه ورود -->
+    <div class="login-container" id="loginPage">
+        <div class="login-box">
+            <div class="login-header">
+                <h2><i class="fas fa-user-graduate"></i> سیستم مدیریت پرسنل</h2>
+                <p>آموزشگاه نخبگان ستاری</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">ایمیل</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">رمز عبور</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="login-btn">ورود به سیستم</button>
+            </form>
+            <div class="login-footer">
+                <p>برای دسترسی به سیستم باید وارد شوید</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- صفحه اصلی (پس از ورود) -->
+    <div class="container hidden" id="mainPage">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-user-graduate"></i>
+                    <h1>سیستم مدیریت پرسنل - نخبگان ستاری</h1>
+                </div>
+                <div class="user-info">
+                    <div class="connection-status online" id="connectionStatus">
+                        <i class="fas fa-wifi"></i>
+                        <span>آنلاین</span>
+                    </div>
+                    <span id="userEmail"></span>
+                    <span id="userRole"></span>
+                    <button class="btn btn-danger" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> خروج
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="nav-tabs">
+            <div class="tab active" data-tab="add">افزودن پرسنل جدید</div>
+            <div class="tab" data-tab="list">لیست پرسنل</div>
+            <div class="tab" data-tab="idcard">چاپ کارت هویت</div>
+            <div class="tab" data-tab="stats">آمار و گزارشها</div>
+            <div class="tab" data-tab="users" id="usersTab" style="display: none;">مدیریت کاربران</div>
+        </div>
+        
+        <div class="notification success" id="success-notification">
+            عملیات با موفقیت انجام شد!
+        </div>
+        
+        <div class="notification error" id="error-notification">
+            خطا در انجام عملیات!
+        </div>
+        
+        <div class="notification warning" id="warning-notification">
+            هشدار: شما در حالت آفلاین هستید!
+        </div>
+        
+        <!-- بخش افزودن پرسنل -->
+        <div class="tab-content active" id="add">
+            <div class="print-actions">
+                <button class="btn btn-print" onclick="printSection('add')">
+                    <i class="fas fa-print"></i> پرینت فرم
+                </button>
+            </div>
+            
+            <div class="print-section">
+                <div class="print-header">
+                    <h2>فرم ثبت پرسنل جدید</h2>
+                    <p>آموزشگاه نخبگان ستاری - سیستم مدیریت پرسنل</p>
+                </div>
+                
+                <h2><i class="fas fa-user-plus"></i> ثبت اطلاعات پرسنل جدید</h2>
+                <form id="personnel-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">نام کامل</label>
+                            <input type="text" id="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fatherName">نام پدر</label>
+                            <input type="text" id="fatherName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="idNumber">شماره تذکره</label>
+                            <input type="text" id="idNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">شماره تماس</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department">صنف/بخش</label>
+                            <select id="department" required>
+                                <option value="">انتخاب کنید</option>
+                                <option value="مدیریت">مدیریت</option>
+                                <option value="آموزش">آموزش</option>
+                                <option value="اداری">اداری</option>
+                                <option value="مالی">مالی</option>
+                                <option value="فنی">فنی</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">مقطع/سمت</label>
+                            <input type="text" id="position" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="personalNumber">شماره پرسنلی</label>
+                            <input type="text" id="personalNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="photo">عکس پرسنلی (URL)</label>
+                            <input type="text" id="photo" placeholder="آدرس تصویر (اختیاری)">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> ذخیره اطلاعات و ارسال گزارش
+                    </button>
+                </form>
+                
+                <div class="print-footer">
+                    <p>چاپ شده از سیستم مدیریت پرسنل نخبگان ستاری - تاریخ: <span id="print-date-add"></span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- بخش لیست پرسنل -->
+        <div class="tab-content" id="list">
+            <div class="print-actions">
+                <button class="btn btn-print" onclick="printSection('list')">
+                    <i class="fas fa-print"></i> پرینت لیست
+                </button>
+            </div>
+            
+            <div class="print-section">
+                <div class="print-header">
+                    <h2>لیست کامل پرسنل</h2>
+                    <p>آموزشگاه نخبگان ستاری - سیستم مدیریت پرسنل</p>
+                </div>
+                
+                <h2><i class="fas fa-list"></i> لیست پرسنل ثبت شده</h2>
+                
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="جستجو در بین پرسنل...">
+                    <button class="btn btn-primary" onclick="searchPersonnel()">
+                        <i class="fas fa-search"></i> جستجو
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearSearch()">
+                        <i class="fas fa-times"></i> پاک کردن
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table class="personnel-table">
+                        <thead>
+                            <tr>
+                                <th>ردیف</th>
+                                <th>نام کامل</th>
+                                <th>نام پدر</th>
+                                <th>شماره تذکره</th>
+                                <th>شماره تماس</th>
+                                <th>صنف/بخش</th>
+                                <th>سمت</th>
+                                <th>شماره پرسنلی</th>
+                                <th>تاریخ ثبت</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="personnelTableBody">
+                            <!-- دادههای جدول به صورت داینامیک پر میشود -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="table-footer">
+                    <div class="table-info" id="tableInfo">
+                        نمایش 0 از 0 رکورد
+                    </div>
+                    <div class="pagination" id="pagination">
+                        <!-- صفحات به صورت داینامیک ایجاد میشوند -->
+                    </div>
+                </div>
+                
+                <div class="print-footer">
+                    <p>چاپ شده از سیستم مدیریت پرسنل نخبگان ستاری - تاریخ: <span id="print-date-list"></span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- بخش کارت هویت -->
+        <div class="tab-content" id="idcard">
+            <div class="print-actions">
+                <button class="btn btn-print" onclick="printIdCard()">
+                    <i class="fas fa-print"></i> پرینت کارت هویت
+                </button>
+            </div>
+            
+            <div class="print-section">
+                <div class="print-header">
+                    <h2>کارت هویت پرسنل</h2>
+                    <p>آموزشگاه نخبگان ستاری - سیستم مدیریت پرسنل</p>
+                </div>
+                
+                <h2><i class="fas fa-id-card"></i> چاپ کارت هویت پرسنل</h2>
+                <div class="form-group">
+                    <label for="personnelSelect">انتخاب پرسنل برای چاپ کارت</label>
+                    <select id="personnelSelect">
+                        <option value="">یک پرسنل را انتخاب کنید</option>
+                    </select>
+                </div>
+                
+                <div id="idCardContainer">
+                    <!-- کارت هویت به صورت داینامیک پر میشود -->
+                    <div class="id-card-placeholder">
+                        <i class="fas fa-id-card" style="font-size: 5rem; color: #ccc; margin-bottom: 20px;"></i>
+                        <p>لطفاً یک پرسنل را از لیست انتخاب کنید</p>
+                    </div>
+                </div>
+                
+                <div class="print-footer">
+                    <p>چاپ شده از سیستم مدیریت پرسنل نخبگان ستاری - تاریخ: <span id="print-date-idcard"></span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- بخش آمار و گزارشها -->
+        <div class="tab-content" id="stats">
+            <div class="print-actions">
+                <button class="btn btn-print" onclick="printSection('stats')">
+                    <i class="fas fa-print"></i> پرینت آمار
+                </button>
+            </div>
+            
+            <div class="print-section">
+                <div class="print-header">
+                    <h2>گزارش آماری سیستم</h2>
+                    <p>آموزشگاه نخبگان ستاری - سیستم مدیریت پرسنل</p>
+                </div>
+                
+                <h2><i class="fas fa-chart-bar"></i> آمار و گزارشها</h2>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <i class="fas fa-users fa-2x"></i>
+                        <div class="stat-number" id="totalPersonnel">0</div>
+                        <div class="stat-title">تعداد کل پرسنل</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                        <div class="stat-number" id="educationCount">0</div>
+                        <div class="stat-title">پرسنل آموزشی</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-id-card fa-2x"></i>
+                        <div class="stat-number" id="idCardsPrinted">0</div>
+                        <div class="stat-title">کارت چاپ شده</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-success" id="sendReportBtn">
+                        <i class="fab fa-telegram"></i> ارسال گزارش به تلگرام
+                    </button>
+                    <button class="btn btn-warning" id="syncDataBtn">
+                        <i class="fas fa-sync-alt"></i> همگامسازی دادهها
+                    </button>
+                </div>
+                
+                <div class="print-footer">
+                    <p>چاپ شده از سیستم مدیریت پرسنل نخبگان ستاری - تاریخ: <span id="print-date-stats"></span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- بخش مدیریت کاربران -->
+        <div class="tab-content" id="users">
+            <div class="print-actions">
+                <button class="btn btn-print" onclick="printSection('users')">
+                    <i class="fas fa-print"></i> پرینت لیست کاربران
+                </button>
+            </div>
+            
+            <div class="print-section">
+                <div class="print-header">
+                    <h2>مدیریت کاربران سیستم</h2>
+                    <p>آموزشگاه نخبگان ستاری - سیستم مدیریت پرسنل</p>
+                </div>
+                
+                <h2><i class="fas fa-users-cog"></i> مدیریت کاربران</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="newUserEmail">ایمیل کاربر جدید</label>
+                        <input type="email" id="newUserEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserPassword">رمز عبور</label>
+                        <input type="password" id="newUserPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserRole">نقش کاربر</label>
+                        <select id="newUserRole">
+                            <option value="user">کاربر عادی</option>
+                            <option value="admin">مدیر سیستم</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="btn btn-success" onclick="addNewUser()">
+                    <i class="fas fa-user-plus"></i> افزودن کاربر جدید
+                </button>
+                
+                <div class="user-management">
+                    <h3><i class="fas fa-list"></i> لیست کاربران</h3>
+                    <div class="table-container">
+                        <table class="users-table">
+                            <thead>
+                                <tr>
+                                    <th>ردیف</th>
+                                    <th>ایمیل</th>
+                                    <th>نقش</th>
+                                    <th>تاریخ ایجاد</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- دادههای کاربران به صورت داینامیک پر میشود -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="print-footer">
+                    <p>چاپ شده از سیستم مدیریت پرسنل نخبگان ستاری - تاریخ: <span id="print-date-users"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
